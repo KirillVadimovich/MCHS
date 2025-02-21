@@ -124,6 +124,15 @@ export default function Header() {
             </Link>
           </div>
         </div>
+        {/* Разделительная линия */}
+        <div className="border-t border-white opacity-30"></div>
+
+        {/* Навигация */}
+        <nav className="hidden md:flex justify-start space-x-6 py-3 px-[270px]">
+          <Link href="/events" className="hover:text-gray-300">Мероприятия</Link>
+          <Link href="/map" className="hover:text-gray-300">Карта</Link>
+          <Link href="/profile" className="hover:text-gray-300">Личный кабинет</Link>
+        </nav>
       </div>
     </header>
   );
