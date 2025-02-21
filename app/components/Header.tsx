@@ -14,10 +14,10 @@ export default function Header() {
   return (
     <header className="w-full">
       {/* Верхний светло-синий хедер */}
-      <div className="bg-[#083759] text-white flex justify-end items-center p-4 px-6 md:px-[250px] space-x-4 relative">
+      <div className="bg-[#083759] text-white flex justify-end items-center p-4 px-6 md:px-[230px] space-x-4 relative">
         {/* Кнопка смены языка */}
         <button
-          className="w-8 h-8 bg-[#072c42] text-white rounded-full flex items-center justify-center text-xs font-semibold hover:bg-[#061f2e] transition"
+          className="ml-[10px] w-8 h-8 bg-[#072c42] text-white rounded-full flex items-center justify-center text-xs font-semibold hover:bg-[#061f2e] transition"
           onClick={() => setLang(lang === "RU" ? "KAZ" : "RU")}
         >
           {lang}
@@ -25,7 +25,7 @@ export default function Header() {
 
         {/* Кнопка настроек */}
         <button
-          className="w-8 h-8 bg-[#072c42] text-white rounded-full flex items-center justify-center hover:bg-[#061f2e] transition"
+          className="ml-[10px] w-8 h-8 bg-[#072c42] text-white rounded-full flex items-center justify-center hover:bg-[#061f2e] transition"
           onClick={() => setShowSettings(!showSettings)}
         >
           {showSettings ? <FaEyeSlash /> : <FaEye />}
@@ -33,7 +33,7 @@ export default function Header() {
 
         {/* Окно настроек */}
         {showSettings && (
-          <div className="absolute top-14 right-6 md:right-[250px] bg-white p-6 rounded-lg shadow-lg border w-72 z-50">
+          <div className="absolute top-14 right-6 md:right-[190px] bg-white p-6 rounded-lg shadow-lg border w-72 z-50">
             <h3 className="text-xl font-bold mb-4 text-[#1E3A5F]">Настройки</h3>
 
             {/* Размер шрифта */}
@@ -78,7 +78,7 @@ export default function Header() {
         )}
 
         {/* Иконка пользователя и "Вход" */}
-        <div className="flex flex-col items-center space-y-1">
+        <div className="ml-[10px] flex flex-col items-center space-y-1">
           <div className="flex items-center space-x-2">
             <FaUser className="text-lg" />
             <Link href="/login" className="underline hover:text-gray-300 transition">
@@ -90,7 +90,7 @@ export default function Header() {
 
       {/* Основной темно-синий хедер */}
       <div className="bg-[#1F3C88] text-white">
-        <div className="flex justify-between items-center py-6 px-6 md:px-[250px]">
+        <div className="flex justify-between items-center py-6 px-6 md:px-[270px]">
           {/* Логотип и название */}
           <div className="flex items-center space-x-3">
             <Link href="/">
@@ -108,16 +108,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Бургер-меню для мобильной версии */}
-          <button
-            className="md:hidden text-2xl hover:text-gray-300 transition"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-          </button>
-
-          {/* Соцсети для ПК версии */}
-          <div className="hidden md:flex space-x-4 text-xl">
+          {/* Соцсети */}
+          <div className="hidden md:flex space-x-4 text-xl -mr-[40px]">
             <Link href="https://instagram.com" target="_blank">
               <FaInstagram className="hover:text-gray-300 transition" />
             </Link>
@@ -132,57 +124,7 @@ export default function Header() {
             </Link>
           </div>
         </div>
-
-        {/* Разделительная линия */}
-        <div className="border-t border-white opacity-30"></div>
-
-        {/* Навигация для ПК версии */}
-        <nav className="hidden md:flex justify-start space-x-6 py-3 px-[250px]">
-          <Link href="/events" className="hover:text-gray-300">Мероприятия</Link>
-          <Link href="/map" className="hover:text-gray-300">Карта</Link>
-          <Link href="/profile" className="hover:text-gray-300">Личный кабинет</Link>
-        </nav>
       </div>
-
-      {/* Бургер-меню для мобильной версии */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40">
-          {/* Крестик для закрытия меню */}
-          <div className="flex justify-end p-6">
-            <button
-              className="text-2xl text-black hover:text-gray-600 transition"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <FaTimes />
-            </button>
-          </div>
-
-          {/* Навигация в бургер-меню */}
-          <nav className="flex flex-col items-center space-y-6 pt-10 text-lg text-black">
-            <Link
-              href="/events"
-              className="px-6 py-3 w-full text-center hover:bg-gray-100 rounded-lg transition"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Мероприятия
-            </Link>
-            <Link
-              href="/map"
-              className="px-6 py-3 w-full text-center hover:bg-gray-100 rounded-lg transition"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Карта
-            </Link>
-            <Link
-              href="/profile"
-              className="px-6 py-3 w-full text-center hover:bg-gray-100 rounded-lg transition"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Личный кабинет
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
